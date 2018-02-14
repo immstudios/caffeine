@@ -1,0 +1,51 @@
+general {
+    output_format = "i3bar"
+}
+
+order += "mpd_status"
+order += "volume master"
+order += "battery_level"
+order += "keyboard_layout"
+order += "tztime local"
+
+mpd_status {
+    cache_timeout = 0.5
+
+    host = "localhost"
+    port = 6600
+
+    hide_when_stopped = True
+    on_click 1   = "exec mpc toggle"
+
+    color_play   = "#c0c0c0"
+    color_pause  = "#a0a0a0"
+    color_stop   = "#a0a0a0"
+    state_play   = ""
+    state_pause  = ""
+}
+
+tztime local {
+    format = " %Y-%m-%d  %H:%M:%S"
+}
+
+volume master {
+    on_click 1   = "exec pavucontrol"
+    format       = " %volume "
+    format_muted = "MUTE"
+    device       = "default"
+    mixer        = "Master"
+    mixer_idx    = 0
+}
+
+keyboard_layout {
+    cache_timeout = 0.5
+}
+
+battery_level {
+    hide_when_full = 1
+    charging_character = "⚡"
+    blocks = ""
+    format = "{icon} {percent}%"
+    cache_timeout = 5
+}
+

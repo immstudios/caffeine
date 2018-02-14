@@ -1,0 +1,101 @@
+!
+! Xft
+!
+
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+!
+! URxvt
+!
+
+URxvt.termName:             rxvt-unicode-256color
+URxvt.intensityStyles:      true
+URxvt.loginShell:           true
+URxvt.cursorBlink:          true
+URxvt.urgentOnBell:         true
+URxvt.saveLines:            12000
+URxvt.fading:		  	 	40
+URxvt.override-redirect:    false
+
+URxvt.depth:                32
+URxvt.geometry:             90x30
+URxvt.internalBorder:       5
+URxvt.letterSpace:          0
+URxvt.lineSpace:            0
+
+URxvt.keysym.Home:          \033[1~
+URxvt.keysym.End:           \033[4~
+URxvt.keysym.KP_Home:       \033[1~
+URxvt.keysym.KP_End:        \033[4~
+
+URxvt.keysym.Control-Up:    \033[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
+
+URxvt*font:                 xft:DejaVuSansMono Nerd Font:size=10
+URxvt*scrollBar:            false
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
+URxvt.secondaryScreen:      1
+URxvt.secondaryScroll:      1
+URxvt.secondaryWheel:       1
+
+URxvt*perl-lib:             /usr/lib/urxvt/perl/
+URxvt*perl-ext-common:      default,matcher
+URxvt*urlLauncher:          x-www-browser
+URxvt*matcher.button:       1
+URxvt*matcher.pattern.1:    \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+
+!
+! Color scheme
+!
+
+*.background:   [80]#000000
+*.foreground:   #93A1A1
+*.cursorColor:  #fd9d4f
+
+! Black + DarkGrey
+*.color0:  #002B36
+*.color8:  #657B83
+! DarkRed + Red
+*.color1:  #DC322F
+*.color9:  #E87371
+! DarkGreen + Green
+*.color2:  #859900
+*.color10: #C7E400
+! DarkYellow + Yellow
+*.color3:  #B58900
+*.color11: #FFC102
+! DarkBlue + Blue
+*.color4:  #268BD2
+*.color12: #63ADE3
+! DarkMagenta + Magenta
+*.color5:  #6C71C4
+*.color13: #A2A5D9
+! DarkCyan + Cyan
+*.color6:  #2AA198
+*.color14: #47CFC5
+! LightGrey + White
+*.color7:  #93A1A1
+*.color15: #FDF6E3
+
+!
+! Rofi
+!
+
+rofi.width: 50
+rofi.location: 0
+rofi.separator-style: solid
+rofi.padding: 16
+rofi.hide-scrollbar: true
+rofi.color-enabled: true
+rofi.color-window: #393939, #393939, #268bd2
+rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
+rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c

@@ -1,0 +1,168 @@
+#
+# Appearance
+#
+
+set $base00 #2d2d2d
+set $base01 #393939
+set $base02 #515151
+set $base03 #747369
+set $base04 #a09f93
+set $base05 #d3d0c8
+set $base06 #e8e6df
+set $base07 #f2f0ec
+set $base08 #f2777a
+set $base09 #f99157
+set $base0A #ffcc66
+set $base0B #99cc99
+set $base0C #66cccc
+set $base0D #6699cc
+set $base0E #cc99cc
+set $base0F #d27b53
+
+#                            border  backgnd text    indictr
+client.focused               $base01 $base01 $base07 $base0F
+client.focused_inactive      $base02 $base02 $base03 $base0F
+client.unfocused             $base02 $base02 $base03 $base0F
+client.urgent                $base08 $base08 $base00 $base0F
+
+font pango:                  DejaVuSansMono Nerd Font 10
+hide_edge_borders            both
+new_window                   pixel 0
+
+set $mod                     Mod4
+floating_modifier            $mod
+
+#
+# Keyboard shortcuts
+#
+
+bindsym 	XF86MonBrightnessUp 	exec light -A 20                    # increase screen brightness
+bindsym 	XF86MonBrightnessDown 	exec light -U 20                    # decrease screen brightness
+
+bindsym     XF86AudioRaiseVolume    exec pactl set-sink-volume 0 +5%    #increase sound volume
+bindsym     XF86AudioLowerVolume    exec pactl set-sink-volume 0 -5%    #decrease sound volume
+bindsym     XF86AudioMute           exec pactl set-sink-mute 0 toggle   # mute sound
+
+
+bindsym     $mod+Shift+q        kill
+bindsym     $mod+Return         exec i3-sensible-terminal
+bindsym     $mod+d              exec rofi -show run -lines 10
+bindsym     Print               exec ~/.config/scripts/screenshot.sh
+
+bindsym     $mod+Shift+c        reload
+bindsym     $mod+Shift+r        restart
+bindsym     $mod+Shift+e        exec ~/.config/scripts/rofi-power.sh
+bindsym     $mod+Ctrl+l         exec i3lock -i /usr/share/backgrounds/caffeine.png
+
+# change focus
+bindsym     $mod+j              focus left
+bindsym     $mod+k              focus down
+bindsym     $mod+l              focus up
+bindsym     $mod+semicolon      focus right
+
+# alternatively, you can use the cursor keys:
+bindsym     $mod+Left           focus left
+bindsym     $mod+Down           focus down
+bindsym     $mod+Up             focus up
+bindsym     $mod+Right          focus right
+
+# move focused window
+bindsym     $mod+Shift+j            move left
+bindsym     $mod+Shift+k            move down
+bindsym     $mod+Shift+l            move up
+bindsym     $mod+Shift+semicolon    move right
+
+# alternatively, you can use the cursor keys:
+bindsym     $mod+Shift+Left     move left
+bindsym     $mod+Shift+Down     move down
+bindsym     $mod+Shift+Up       move up
+bindsym     $mod+Shift+Right    move right
+
+
+bindsym     $mod+h              split h
+bindsym     $mod+v              split v
+bindsym     $mod+f              fullscreen toggle
+
+bindsym     $mod+s              layout stacking
+bindsym     $mod+w              layout tabbed
+bindsym     $mod+e              layout toggle split
+bindsym     $mod+Shift+space    floating toggle
+
+# change focus between tiling / floating windows
+bindsym     $mod+space          focus mode_toggle
+
+# focus the parent container
+bindsym     $mod+a              focus parent
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym     $mod+r          mode "resize"
+
+mode "resize" {
+    bindsym j           resize shrink   width  10 px or 10 ppt
+    bindsym k           resize grow     height 10 px or 10 ppt
+    bindsym l           resize shrink   height 10 px or 10 ppt
+    bindsym semicolon   resize grow     width  10 px or 10 ppt
+
+    bindsym Left        resize shrink   width  10 px or 10 ppt
+    bindsym Down        resize grow     height 10 px or 10 ppt
+    bindsym Up          resize shrink   height 10 px or 10 ppt
+    bindsym Right       resize grow     width  10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+#
+# Status bar
+#
+
+bar {
+    status_command py3status -n .5
+    separator_symbol " | "
+
+    colors {
+        #                       border  backgnd text    indictr
+        focused_workspace       $base00 $base00 $base07 $base0F
+        inactive_workspace      $base00 $base00 $base03 $base0F
+        active_workspace        $base00 $base00 $base03 $base0F
+        urgent_workspace        $base08 $base08 $base00 $base0F
+    }
+}
+
+#
+# App windows settings
+#
+
+for_window [class="vlc"] fullscreen enable
+for_window [class="mpv"] fullscreen enable
+for_window [class="Zathura"] fullscreen enable
+for_window [class="Pavucontrol"] floating enable
+
+#
+# Run following scipt on start
+#
+
+exec --no-startup-id ~/.config/scripts/autostart.sh
