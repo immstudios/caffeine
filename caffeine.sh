@@ -27,8 +27,8 @@ function install_root {
 
     # X server and audio
     apt install -y \
-        numlockx rxvt-unicode-256color \
         i3 i3lock i3status \
+        numlockx xclip rxvt-unicode-256color \
         scrot feh rofi compton redshift touchegg || return 1
 
     pip3 install py3status python-mpd2 || return 1
@@ -39,7 +39,7 @@ function install_root {
 
     # Desktop apps
     apt install -y \
-        qiv zathura vlc || return 1
+        zathura vlc || return 1
 
     # Default background
     if [ ! -d /usr/share/backgrounds ]; then

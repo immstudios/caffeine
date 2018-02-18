@@ -25,9 +25,15 @@ client.focused_inactive      $base02 $base02 $base03 $base0F
 client.unfocused             $base02 $base02 $base03 $base0F
 client.urgent                $base08 $base08 $base00 $base0F
 
+
+smart_gaps on
+gaps outer 0
+gaps inner 18
+
 font pango:                  DejaVuSansMono Nerd Font 10
 hide_edge_borders            both
 new_window                   pixel 0
+
 
 set $mod                     Mod4
 floating_modifier            $mod
@@ -44,27 +50,29 @@ bindsym     XF86AudioLowerVolume    exec pactl set-sink-volume 0 -5%    #decreas
 bindsym     XF86AudioMute           exec pactl set-sink-mute 0 toggle   # mute sound
 
 
-bindsym     $mod+Shift+q        kill
-bindsym     $mod+Return         exec i3-sensible-terminal
-bindsym     $mod+d              exec rofi -show run -lines 10
-bindsym     Print               exec ~/.config/scripts/screenshot.sh
+bindsym     $mod+Shift+q            kill
+bindsym     $mod+Return             exec i3-sensible-terminal
+bindsym     $mod+d                  exec rofi -show run -lines 10
+bindsym     Print                   exec ~/.config/scripts/screenshot.sh
+bindsym     $mod+Print              exec ~/.config/scripts/screenshot.sh -w
+bindsym     $mod+Insert             exec xclip -o | xclip -selection clipboard                # move primary buffer to clipboard
 
-bindsym     $mod+Shift+c        reload
-bindsym     $mod+Shift+r        restart
-bindsym     $mod+Shift+e        exec ~/.config/scripts/rofi-power.sh
-bindsym     $mod+Ctrl+l         exec i3lock -i /usr/share/backgrounds/caffeine.png
+bindsym     $mod+Shift+c            reload
+bindsym     $mod+Shift+r            restart
+bindsym     $mod+Shift+e            exec ~/.config/scripts/rofi-power.sh
+bindsym     $mod+Ctrl+l             exec i3lock -i /usr/share/backgrounds/caffeine.png
 
 # change focus
-bindsym     $mod+j              focus left
-bindsym     $mod+k              focus down
-bindsym     $mod+l              focus up
-bindsym     $mod+semicolon      focus right
+bindsym     $mod+h                  focus left
+bindsym     $mod+j                  focus down
+bindsym     $mod+k                  focus up
+bindsym     $mod+l                  focus right
 
 # alternatively, you can use the cursor keys:
-bindsym     $mod+Left           focus left
-bindsym     $mod+Down           focus down
-bindsym     $mod+Up             focus up
-bindsym     $mod+Right          focus right
+bindsym     $mod+Left               focus left
+bindsym     $mod+Down               focus down
+bindsym     $mod+Up                 focus up
+bindsym     $mod+Right              focus right
 
 # move focused window
 bindsym     $mod+Shift+j            move left
@@ -73,26 +81,26 @@ bindsym     $mod+Shift+l            move up
 bindsym     $mod+Shift+semicolon    move right
 
 # alternatively, you can use the cursor keys:
-bindsym     $mod+Shift+Left     move left
-bindsym     $mod+Shift+Down     move down
-bindsym     $mod+Shift+Up       move up
-bindsym     $mod+Shift+Right    move right
+bindsym     $mod+Shift+Left         move left
+bindsym     $mod+Shift+Down         move down
+bindsym     $mod+Shift+Up           move up
+bindsym     $mod+Shift+Right        move right
 
+# Vim like splitting
+bindsym     $mod+s                  split h
+bindsym     $mod+v                  split v
+bindsym     $mod+f                  fullscreen toggle
 
-bindsym     $mod+h              split h
-bindsym     $mod+v              split v
-bindsym     $mod+f              fullscreen toggle
-
-bindsym     $mod+s              layout stacking
-bindsym     $mod+w              layout tabbed
-bindsym     $mod+e              layout toggle split
-bindsym     $mod+Shift+space    floating toggle
+bindsym     $mod+w                  layout stacking
+bindsym     $mod+t                  layout tabbed
+bindsym     $mod+e                  layout toggle split
+bindsym     $mod+Shift+space        floating toggle
 
 # change focus between tiling / floating windows
-bindsym     $mod+space          focus mode_toggle
+bindsym     $mod+space              focus mode_toggle
 
 # focus the parent container
-bindsym     $mod+a              focus parent
+bindsym     $mod+a                  focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -121,10 +129,10 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym     $mod+r          mode "resize"
 
 mode "resize" {
-    bindsym j           resize shrink   width  10 px or 10 ppt
-    bindsym k           resize grow     height 10 px or 10 ppt
-    bindsym l           resize shrink   height 10 px or 10 ppt
-    bindsym semicolon   resize grow     width  10 px or 10 ppt
+    bindsym h           resize shrink   width  10 px or 10 ppt
+    bindsym j           resize grow     height 10 px or 10 ppt
+    bindsym k           resize shrink   height 10 px or 10 ppt
+    bindsym l           resize grow     width  10 px or 10 ppt
 
     bindsym Left        resize shrink   width  10 px or 10 ppt
     bindsym Down        resize grow     height 10 px or 10 ppt
@@ -141,6 +149,7 @@ mode "resize" {
 
 bar {
     status_command py3status -n .5
+    i3bar_command i3bar -t
     separator_symbol " | "
 
     colors {
@@ -156,10 +165,10 @@ bar {
 # App windows settings
 #
 
-for_window [class="vlc"] fullscreen enable
-for_window [class="mpv"] fullscreen enable
-for_window [class="Zathura"] fullscreen enable
-for_window [class="Pavucontrol"] floating enable
+for_window [class="vlc"]                fullscreen enable
+for_window [class="mpv"]                fullscreen enable
+for_window [class="Zathura"]            fullscreen enable
+for_window [class="Pavucontrol"]        floating enable
 
 #
 # Run following scipt on start

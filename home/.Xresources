@@ -56,7 +56,7 @@ URxvt*matcher.pattern.1:    \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 ! Color scheme
 !
 
-*.background:   [80]#000000
+*.background:   [75]#000000
 *.foreground:   #93A1A1
 *.cursorColor:  #fd9d4f
 
