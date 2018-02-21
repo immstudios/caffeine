@@ -26,9 +26,9 @@ client.unfocused             $base02 $base02 $base03 $base0F
 client.urgent                $base08 $base08 $base00 $base0F
 
 
-smart_gaps on
-gaps outer 0
-gaps inner 18
+smart_gaps                   on
+gaps outer                   0
+gaps inner                   18
 
 font pango:                  DejaVuSansMono Nerd Font 10
 hide_edge_borders            both

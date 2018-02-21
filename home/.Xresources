@@ -56,34 +56,34 @@ URxvt*matcher.pattern.1:    \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 ! Color scheme
 !
 
-*.background:   [75]#000000
-*.foreground:   #93A1A1
-*.cursorColor:  #fd9d4f
-
-! Black + DarkGrey
-*.color0:  #002B36
-*.color8:  #657B83
-! DarkRed + Red
-*.color1:  #DC322F
-*.color9:  #E87371
-! DarkGreen + Green
-*.color2:  #859900
-*.color10: #C7E400
-! DarkYellow + Yellow
-*.color3:  #B58900
-*.color11: #FFC102
-! DarkBlue + Blue
-*.color4:  #268BD2
-*.color12: #63ADE3
-! DarkMagenta + Magenta
-*.color5:  #6C71C4
-*.color13: #A2A5D9
-! DarkCyan + Cyan
-*.color6:  #2AA198
-*.color14: #47CFC5
-! LightGrey + White
-*.color7:  #93A1A1
-*.color15: #FDF6E3
+!special
+*.foreground:   #f1ebeb
+*.background:   [95]#272822
+*.cursorColor:  #f1ebeb
+! black
+*.color0:       #48483e
+*.color8:       #76715e
+! red
+*.color1:       #dc2566
+*.color9:       #fa2772
+! green
+*.color2:       #8fc029
+*.color10:      #a7e22e
+! yellow
+*.color3:       #d4c96e
+*.color11:      #e7db75
+! blue
+*.color4:       #55bcce
+*.color12:      #66d9ee
+! magenta
+*.color5:       #9358fe
+*.color13:      #ae82ff
+! cyan
+*.color6:       #56b7a5
+*.color14:      #66efd5
+! white
+*.color7:       #acada1
+*.color15:      #cfd0c2
 
 !
 ! Rofi

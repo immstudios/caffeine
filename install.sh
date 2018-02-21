@@ -1,4 +1,12 @@
 #!/bin/bash
+#               __  __      _
+#     ___ __ _ / _|/ _| ___(_)_ __   ___
+#    / __/ _` | |_| |_ / _ \ | '_ \ / _ \
+#   | (_| (_| |  _|  _|  __/ | | | |  __/
+#    \___\__,_|_| |_|  \___|_|_| |_|\___|
+#
+# --- Linux desktop environment for geeks ---
+#
 #
 # Copyright (c) 2018 imm studios, z.s.
 #
@@ -30,11 +38,6 @@ function finished {
     exit 0
 }
 
-if [ "$(id -u)" != "0" ]; then
-   echo "This script must be run as root" 1>&2
-   error_exit
-fi
-
 if [ ! -d ${temp_dir} ]; then
     mkdir ${temp_dir} || error_exit
 fi
@@ -43,29 +46,17 @@ fi
 ##############################################################################
 
 
-REPOS=(
-    "https://github.com/Airblader/i3"
-)
-
-
-UBUNTU_SPECIFIC=(
-    ubuntu-restricted-extras
-)
-
-
-
-function download_repos {
+function download_repo () {
     cd ${temp_dir}
-    for i in ${REPOS[@]}; do
-        MNAME=`basename $i`
-        if [ -d $MNAME ]; then
-            cd $MNAME
-            git pull || return 1
-            cd ..
-        else
-            git clone $i || return 1
-        fi
-    done
+    repo=$1
+    repo_name=$(basename $repo)
+    if [ -d $repo_name ]; then
+        cd $repo_name
+        git pull || return 1
+        cd ..
+    else
+        git clone $repo || return 1
+    fi
     return 0
 }
 
@@ -76,36 +67,110 @@ function install_apt {
     apt install -y \
         vim git screen curl mc aptitude \
         htop nload nmap net-tools \
-        build-essentials autoconf automake autogen \
+        build-essential autoconf automake autogen \
+        figlet cowsay w3m mediainfo \
         python-pip python3-pip || return 1
 
     apt install -y \
-        numlockx xclip rxvt-unicode-256color xdotool \
+        numlockx xclip rxvt-unicode-256color arandr \
         rofi compton redshift touchegg \
+        mpd mpc ncmpcpp \
         zathura mpv feh scrot || return 1
-}
+
+    apt install -y \
+        vlc \
+        taskwarrior weechat \
+        mutt offlineimap notmuch || return 1
+
+    pip3 install py3status python-mpd2 || return 1
 
 
-function install_apps {
-    APPS_LIST=(
-       vlc
-       taskwarrior
-       mutt
-       weechat
-    )
+    #
+    # USR
+    #
+
+    # Default background
+    if [ ! -d /usr/share/backgrounds ]; then
+        mkdir -p /usr/share/backgrounds
+    fi
+    cp $caffeine_dir/global/usr/share/backgrounds/caffeine.png /usr/share/backgrounds
+
+    # Console font
+    if [ ! -d /usr/share/fonts/caffeine-font ]; then
+        mkdir -p /usr/share/fonts/caffeine-font
+    fi
+    cp -r $caffeine_dir/global/usr/share/fonts/caffeine-font /usr/share/fonts/
+
+    # Set urxvt as default terminal
+    update-alternatives --set x-terminal-emulator /usr/bin/urxvt
+
+    # Disable system-wide MPD
+    if [ -f /etc/mpd.conf]; then rm /etc/mpd.conf; fi
+    systemctl disable mpd
 }
+
 
 
 function install_i3 {
+    command -v i3 >/dev/null 2>&1 && return 0
+
+    apt install -y \
+        libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev \
+        libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev \
+        libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
+        libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
+        libxcb-xrm0 libxcb-xrm-dev || return 1
+
+    download_repo "https://github.com/Airblader/i3"
+
     cd ${temp_dir}/i3
     if [ -d build/ ]; then
         rm -rf build/
     fi
-    autoreconf -- force --install || return 1
+    mkdir build/
+    autoreconf --force --install || return 1
     cd build
     ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers || return 1
     make || return 1
     make install || return 1
 
-    apt install -y i3lock || return 1
+    apt install -y i3lock i3status || return 1
 }
+
+
+function install_user {
+    if [ ! -d $config_dir ]; then
+        mkdir $config_dir;
+    fi
+
+    if [ -f $HOME/.Xresources ];        then rm $HOME/.Xresources; fi
+    if [ -d $config_dir/i3 ];           then rm -rf $config_dir/i3; fi
+    if [ -d $config_dir/i3status ];     then rm -rf $config_dir/i3status; fi
+    if [ -d $config_dir/mpd ];          then rm -rf $config_dir/mpd; fi
+    if [ -d $config_dir/mpv ];          then rm -rf $config_dir/mpv; fi
+    if [ -d $config_dir/touchegg ];     then rm -rf $config_dir/touchegg; fi
+    if [ -d $config_dir/scripts ];      then rm -rf $config_dir/scripts; fi
+
+    ln -s $caffeine_dir/home/.Xresources          $HOME/.Xresources
+    ln -s $caffeine_dir/home/.config/i3           $config_dir/i3
+    ln -s $caffeine_dir/home/.config/i3status     $config_dir/i3status
+    ln -s $caffeine_dir/home/.config/mpd          $config_dir/mpd
+    ln -s $caffeine_dir/home/.config/mpv          $config_dir/mpv
+    ln -s $caffeine_dir/home/.config/touchegg     $config_dir/touchegg
+    ln -s $caffeine_dir/home/.config/scripts      $config_dir/scripts
+
+    # MPD
+    if [ ! -d ~/.cache/mpd ]; then mkdir ~/.cache/mpd; fi
+    if [ ! -d ~/.cache/mpd/playlists ]; then mkdir ~/.cache/mpd/playlists; fi
+}
+
+
+
+
+if [ "$(id -u)" != "0" ]; then
+    install_user || error_exit
+else
+    install_apt || error_exit
+    install_i3 || error_exit
+fi
+

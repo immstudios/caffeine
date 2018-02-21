@@ -13,7 +13,7 @@ wallpaper_dir="$HOME/Pictures/wallpapers"
 if [ -d $wallpaper_dir ] && ls -A $wallpaper_dir/*.jpg ; then
     feh --bg-scale --no-fehbg --randomize $wallpaper_dir
 else
-    feh --bg-scale --no-fehbg /usr/share/backgrounds/caffeine.jpg
+    feh --bg-scale --no-fehbg /usr/share/backgrounds/caffeine.png
 fi
 
 #
