@@ -3,18 +3,27 @@
 #
 
 keyboard_layouts="us,cz"
-wallpaper="/usr/share/backgrounds/caffeine.png"
-wallpaper_dir="$HOME/Pictures/wallpapers"
 
 #
 # Desktop wallpaper
 #
 
-if [ -d $wallpaper_dir ] && ls -A $wallpaper_dir/*.jpg ; then
-    feh --bg-scale --no-fehbg --randomize $wallpaper_dir
+default_wallpaper="/usr/share/backgrounds/caffeine.png"
+wallpaper_dir="$HOME/Pictures/wallpapers"
+wallpaper="$HOME/.cache/current-wallpaper.png"
+
+if [ -d $wallpaper_dir ] && ls -A $wallpaper_dir/*.png ; then
+    background=`find $wallpaper_dir -type f -name *.png | shuf -n 1`
 else
-    feh --bg-scale --no-fehbg /usr/share/backgrounds/caffeine.png
+    background=$default_wallpaper
 fi
+
+if [ -e $wallpaper ]; then
+    rm $wallpaper
+fi
+
+ln -s "$background" "$wallpaper"
+feh --bg-scale --no-fehbg "$wallpaper"
 
 #
 # Everything else
