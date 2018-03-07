@@ -24,6 +24,7 @@
 ## COMMON UTILS
 
 base_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+config_dir=$HOME/.config
 temp_dir="/tmp/caffeine-installer"
 
 function error_exit {
@@ -93,19 +94,19 @@ function install_apt {
     if [ ! -d /usr/share/backgrounds ]; then
         mkdir -p /usr/share/backgrounds
     fi
-    cp $caffeine_dir/global/usr/share/backgrounds/caffeine.png /usr/share/backgrounds
+    cp $base_dir/global/usr/share/backgrounds/caffeine.png /usr/share/backgrounds
 
     # Console font
     if [ ! -d /usr/share/fonts/caffeine-font ]; then
         mkdir -p /usr/share/fonts/caffeine-font
     fi
-    cp -r $caffeine_dir/global/usr/share/fonts/caffeine-font /usr/share/fonts/
+    cp -r $base_dir/global/usr/share/fonts/caffeine-font /usr/share/fonts/
 
     # Set urxvt as default terminal
     update-alternatives --set x-terminal-emulator /usr/bin/urxvt
 
     # Disable system-wide MPD
-    if [ -f /etc/mpd.conf]; then rm /etc/mpd.conf; fi
+    if [ -f /etc/mpd.conf ]; then rm /etc/mpd.conf; fi
     systemctl disable mpd
 }
 
@@ -151,13 +152,13 @@ function install_user {
     if [ -d $config_dir/touchegg ];     then rm -rf $config_dir/touchegg; fi
     if [ -d $config_dir/scripts ];      then rm -rf $config_dir/scripts; fi
 
-    ln -s $caffeine_dir/home/.Xresources          $HOME/.Xresources
-    ln -s $caffeine_dir/home/.config/i3           $config_dir/i3
-    ln -s $caffeine_dir/home/.config/i3status     $config_dir/i3status
-    ln -s $caffeine_dir/home/.config/mpd          $config_dir/mpd
-    ln -s $caffeine_dir/home/.config/mpv          $config_dir/mpv
-    ln -s $caffeine_dir/home/.config/touchegg     $config_dir/touchegg
-    ln -s $caffeine_dir/home/.config/scripts      $config_dir/scripts
+    ln -s $base_dir/home/.Xresources          $HOME/.Xresources
+    ln -s $base_dir/home/.config/i3           $config_dir/i3
+    ln -s $base_dir/home/.config/i3status     $config_dir/i3status
+    ln -s $base_dir/home/.config/mpd          $config_dir/mpd
+    ln -s $base_dir/home/.config/mpv          $config_dir/mpv
+    ln -s $base_dir/home/.config/touchegg     $config_dir/touchegg
+    ln -s $base_dir/home/.config/scripts      $config_dir/scripts
 
     # MPD
     if [ ! -d ~/.cache/mpd ]; then mkdir ~/.cache/mpd; fi
