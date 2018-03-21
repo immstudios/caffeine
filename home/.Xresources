@@ -37,6 +37,11 @@ URxvt.keysym.Control-Down:  \033[1;5B
 URxvt.keysym.Control-Left:  \033[1;5D
 URxvt.keysym.Control-Right: \033[1;5C
 
+URxvt.keysym.Control-minus:     resize-font:smaller
+URxvt.keysym.Control-plus:      resize-font:bigger
+URxvt.keysym.Control-equal:     resize-font:reset
+URxvt.keysym.Control-question:  resize-font:show
+
 URxvt*font:                 xft:DejaVuSansMono Nerd Font:size=10
 URxvt*scrollBar:            false
 URxvt*scrollTtyOutput:      false
@@ -55,14 +60,19 @@ URxvt*urlLauncher:          x-www-browser
 URxvt*matcher.button:       1
 URxvt*matcher.pattern.1:    \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 
+URxvt.clipboard.autocopy:   true
+URxvt.clipboard.copycmd:    xclip -i -selection clipboard
+URxvt.clipboard.pastecmd:   xclip -o -selection clipboard
+
 !
 ! Color scheme
 !
 
 !special
-*.foreground:   #f1ebeb
-*.background:   [95]#272822
-*.cursorColor:  #f1ebeb
+URxvt*foreground:   #f1ebeb
+URxvt*background:   [95]#272822
+URxvt*cursorColor:  #f1ebeb
+
 ! black
 *.color0:       #48483e
 *.color8:       #76715e
@@ -88,17 +98,23 @@ URxvt*matcher.pattern.1:    \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 *.color7:       #acada1
 *.color15:      #cfd0c2
 
+
+
 !
 ! Rofi
 !
 
-rofi.width: 50
-rofi.location: 0
-rofi.separator-style: solid
-rofi.padding: 16
-rofi.hide-scrollbar: true
-rofi.color-enabled: true
-rofi.color-window: #393939, #393939, #268bd2
-rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
-rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
-rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+rofi.width:             50
+rofi.location:          0
+rofi.separator-style:   solid
+rofi.padding:           16
+rofi.hide-scrollbar:    true
+rofi.color-enabled:     true
+
+!                       BG       BORDER   SEP
+rofi.color-window:      #272822, #76715e, #272822
+
+!                       BG       FG       ALT BG   HL BG    HL FG
+rofi.color-normal:      #272822, #cfd0c2, #272822, #55bcce, #48483e
+rofi.color-active:      #272822, #cfd0c2, #272822, #d4c96e, #48483e
+rofi.color-urgent:      #272822, #cfd0c2, #272822, #dc2566, #48483e
