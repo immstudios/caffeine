@@ -73,18 +73,12 @@ function install_apt {
         python-pip python3-pip || return 1
 
     apt install -y \
-        numlockx xclip rxvt-unicode-256color arandr \
-        rofi compton redshift touchegg \
+        numlockx xclip rxvt-unicode-256color arandr acpi \
+        rofi compton redshift \
         mpd mpc ncmpcpp \
-        zathura mpv feh scrot || return 1
-
-    apt install -y \
-        vlc \
-        taskwarrior weechat \
-        mutt offlineimap notmuch || return 1
+        zathura mpv feh scrot vlc vim-gtk || return 1
 
     pip3 install py3status python-mpd2 || return 1
-
 
     #
     # USR
@@ -108,6 +102,18 @@ function install_apt {
     # Disable system-wide MPD
     if [ -f /etc/mpd.conf ]; then rm /etc/mpd.conf; fi
     systemctl disable mpd
+
+    if [ ! -d /usr/lib/urxv/perl ]; then
+        mkdir -p /usr/lib/urxvt/perl
+    fi
+    cp global/usr/lib/urxvt/perl/* /usr/lib/urxvt/perl
+
+}
+
+
+function install_light {
+    #TODO: light installer
+    chmod 4755 /usr/bin/light
 }
 
 
@@ -149,7 +155,6 @@ function install_user {
     if [ -d $config_dir/i3status ];     then rm -rf $config_dir/i3status; fi
     if [ -d $config_dir/mpd ];          then rm -rf $config_dir/mpd; fi
     if [ -d $config_dir/mpv ];          then rm -rf $config_dir/mpv; fi
-    if [ -d $config_dir/touchegg ];     then rm -rf $config_dir/touchegg; fi
     if [ -d $config_dir/scripts ];      then rm -rf $config_dir/scripts; fi
 
     ln -s $base_dir/home/.Xresources          $HOME/.Xresources
@@ -174,4 +179,3 @@ else
     install_apt || error_exit
     install_i3 || error_exit
 fi
-
