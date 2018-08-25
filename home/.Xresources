@@ -74,7 +74,7 @@ URxvt*background:   [95]#272822
 URxvt*cursorColor:  #f1ebeb
 
 ! black
-*.color0:       #48483e
+*.color0:       #0f0f0f
 *.color8:       #76715e
 ! red
 *.color1:       #dc2566
