@@ -13,21 +13,23 @@ wallpaper_dir="$HOME/Pictures/wallpapers"
 wallpaper="$HOME/.cache/current-wallpaper.png"
 
 if [ -d $wallpaper_dir ] && ls -A $wallpaper_dir/*.png ; then
-    background=`find $wallpaper_dir -type f -name *.png | shuf -n 1`
+    background=$(find $wallpaper_dir -type f -name "*.png" -exec realpath {} \;  | shuf -n 1)
 else
     background=$default_wallpaper
 fi
 
-if [ -e $wallpaper ]; then
+if [ -f $wallpaper ] || [ -L $wallpaper ]; then
     rm $wallpaper
 fi
 
 ln -s "$background" "$wallpaper"
 feh --bg-scale --no-fehbg "$wallpaper"
 
+
 #
-# Everything else
 #
+#
+
 
 setxkbmap -layout $keyboard_layouts -option grp:alt_shift_toggle
 numlockx
@@ -36,3 +38,4 @@ touchegg &
 nm-applet &
 redshift &
 [ ! -s ~/.config/mpd/pid ] && mpd
+
