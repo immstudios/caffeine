@@ -47,9 +47,10 @@ for fname in sorted(os.listdir(directory)):
     else:
         post.append(os.path.abspath(fname))
 
-cmd = ["feh", "-FB", "black", "--draw-tinted"]
+cmd = ["feh", "-FB", "black", "-q", "--draw-tinted"]
 cmd.append(first_image)
 cmd.extend(pre)
 cmd.extend(post)
 p = subprocess.Popen(cmd)
+p.wait()
 
