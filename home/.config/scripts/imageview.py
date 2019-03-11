@@ -47,7 +47,7 @@ for fname in sorted(os.listdir(directory)):
     else:
         post.append(os.path.abspath(fname))
 
-cmd = ["feh", "-FB", "black", "-q", "--draw-tinted"]
+cmd = ["feh", "-FB", "black", "-q", "--draw-tinted", "--auto-rotate"]
 cmd.append(first_image)
 cmd.extend(pre)
 cmd.extend(post)

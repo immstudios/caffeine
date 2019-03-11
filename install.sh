@@ -47,7 +47,7 @@ fi
 ##############################################################################
 
 
-function download_repo () {
+function download_repo() {
     cd ${temp_dir}
     repo=$1
     repo_name=$(basename $repo)
@@ -66,10 +66,11 @@ function install_apt {
     apt update || return 1
 
     apt install -y \
-        vim git screen curl mc aptitude \
+        vim git screen curl mc aptitude source-highlight \
         htop nload nmap net-tools \
         build-essential autoconf automake autogen \
         figlet cowsay w3m mediainfo \
+        unoconv odt2txt catdoc \
         python-pip python3-pip || return 1
 
     apt install -y \
@@ -162,7 +163,6 @@ function install_user {
     ln -s $base_dir/home/.config/i3status     $config_dir/i3status
     ln -s $base_dir/home/.config/mpd          $config_dir/mpd
     ln -s $base_dir/home/.config/mpv          $config_dir/mpv
-    ln -s $base_dir/home/.config/touchegg     $config_dir/touchegg
     ln -s $base_dir/home/.config/scripts      $config_dir/scripts
 
     # MPD

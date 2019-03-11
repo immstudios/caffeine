@@ -22,6 +22,7 @@ Basic blocks
  * mpd - Music player daemon
  * ncmpcpp - MPD Client
 
+
 ### Installation (easy way)
 
  * Install Xubuntu
@@ -33,14 +34,31 @@ Basic blocks
  * `./install.sh` to deploy config files
  * reboot and choose i3 session at the login screen
 
+
+## Raspberry Pi
+
+
 ### Basic usage
 
+#### Window management
+
  * Hit Mod+Enter to open new terminal window (Mod=Windows key)
- * Mod+arrow keys to switch between windows
+ * Mod+arrow keys to switch between windows (you may use vim nav keys hjkl as well)
  * Mod+(number) to switch workspaces
+ * Mod+shift+arrow keys - move window
+ * Mod+T - Tabbed mode
+ * Mod+S - Horizontal tiles
+ * Mod+V - Vertical tiles
+ * Mod+E - Swap horizontal/vertical
+ * Mod+R - Resize mode
+
+#### Tools
+
  * Mod+D to open application menu
  * Mod+Ctrl+L - lock desktop
  * Mod+Shift+E - logout/reboot/shutdown
+ * Print Screen - Save desktop screenshot to ~/Pictures/screenshots
+ * Alt+Print Screen - Save current window screenshot to ~/Pictures/screenshots
 
 
 ### Useful commands

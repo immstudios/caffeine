@@ -8,6 +8,7 @@ order += "battery_level"
 order += "keyboard_layout"
 order += "tztime local"
 
+
 mpd_status {
     cache_timeout = 0.5
 

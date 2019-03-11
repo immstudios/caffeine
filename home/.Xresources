@@ -86,7 +86,7 @@ URxvt*cursorColor:  #f1ebeb
 *.color3:       #d4c96e
 *.color11:      #e7db75
 ! blue
-*.color4:       #55bcce
+*.color4:       #3472b7
 *.color12:      #66d9ee
 ! magenta
 *.color5:       #9358fe
@@ -107,7 +107,7 @@ URxvt*cursorColor:  #f1ebeb
 rofi.width:             50
 rofi.location:          0
 rofi.separator-style:   solid
-rofi.padding:           16
+
 rofi.hide-scrollbar:    true
 rofi.color-enabled:     true
 
@@ -115,6 +115,6 @@ rofi.color-enabled:     true
 rofi.color-window:      #272822, #76715e, #272822
 
 !                       BG       FG       ALT BG   HL BG    HL FG
-rofi.color-normal:      #272822, #cfd0c2, #272822, #55bcce, #48483e
+rofi.color-normal:      #272822, #cfd0c2, #272822, #3472b7, #acada1
 rofi.color-active:      #272822, #cfd0c2, #272822, #d4c96e, #48483e
 rofi.color-urgent:      #272822, #cfd0c2, #272822, #dc2566, #48483e
