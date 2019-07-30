@@ -127,7 +127,7 @@ function install_i3 {
         libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev \
         libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
         libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
-        libxcb-xrm0 libxcb-xrm-dev || return 1
+        libxcb-xrm0 libxcb-xrm-dev libxcb-shape0-dev || return 1
 
     download_repo "https://github.com/Airblader/i3"
 
