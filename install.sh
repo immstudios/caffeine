@@ -43,6 +43,10 @@ if [ ! -d ${temp_dir} ]; then
     mkdir ${temp_dir} || error_exit
 fi
 
+if [ ! -d $config_dir ]; then
+    mkdir $config_dir;
+fi
+
 ## COMMON UTILS
 ##############################################################################
 
@@ -65,21 +69,46 @@ function download_repo() {
 function install_apt {
     apt update || return 1
 
+    # X server and audio
     apt install -y \
-        vim git screen curl mc aptitude source-highlight \
-        htop nload nmap net-tools \
+        xserver-xorg xdm  \
+        pulseaudio pulseaudio-utils pavucontrol \
+        || return 1
+
+    # Desktop notifications
+    apt install -y \
+        dunst libnotify-bin dbus-x11 || return 1
+
+    # Console utils
+    apt install -y \
+        vim git screen curl mc rsync aptitude source-highlight \
+        htop nload nmap net-tools\
         build-essential autoconf automake autogen \
         figlet cowsay w3m mediainfo \
         unoconv odt2txt catdoc \
         python-pip python3-pip || return 1
 
+    # GUI utils
     apt install -y \
         numlockx xclip rxvt-unicode-256color arandr acpi \
-        rofi compton redshift \
+        rofi compton redshift xbacklight \
         mpd mpc ncmpcpp \
         zathura mpv feh scrot vlc vim-gtk || return 1
 
+    apt install -y \
+        gtk2-engines-pixbuf gtk2-engines-murrine || return 1
+
+
     pip3 install py3status python-mpd2 || return 1
+
+
+    #
+    # ETC
+    #
+
+
+    cp $caffeine_dir/global/etc/X11/xdm/Xresources /etc/X11/xdm/Xresources
+    cp $caffeine_dir/global/etc/X11/xdm/Xsetup /etc/X11/xdm/Xsetup
 
     #
     # USR
@@ -104,17 +133,12 @@ function install_apt {
     if [ -f /etc/mpd.conf ]; then rm /etc/mpd.conf; fi
     systemctl disable mpd
 
+    # urxvt plugins
     if [ ! -d /usr/lib/urxv/perl ]; then
         mkdir -p /usr/lib/urxvt/perl
     fi
     cp global/usr/lib/urxvt/perl/* /usr/lib/urxvt/perl
 
-}
-
-
-function install_light {
-    #TODO: light installer
-    chmod 4755 /usr/bin/light
 }
 
 
@@ -147,10 +171,6 @@ function install_i3 {
 
 
 function install_user {
-    if [ ! -d $config_dir ]; then
-        mkdir $config_dir;
-    fi
-
     if [ -f $HOME/.Xresources ];        then rm $HOME/.Xresources; fi
     if [ -d $config_dir/i3 ];           then rm -rf $config_dir/i3; fi
     if [ -d $config_dir/i3status ];     then rm -rf $config_dir/i3status; fi
@@ -164,10 +184,13 @@ function install_user {
     ln -s $base_dir/home/.config/mpd          $config_dir/mpd
     ln -s $base_dir/home/.config/mpv          $config_dir/mpv
     ln -s $base_dir/home/.config/scripts      $config_dir/scripts
+    ln -s $base_dir/home/.config/dunst        $config_dir/dunst
 
-    # MPD
-    if [ ! -d ~/.cache/mpd ]; then mkdir ~/.cache/mpd; fi
-    if [ ! -d ~/.cache/mpd/playlists ]; then mkdir ~/.cache/mpd/playlists; fi
+    echo "exec i3 > $HOME/.xsession"
+
+    xdg-mime default feh.desktop image/jpeg
+    xdg-mime default feh.desktop image/png
+
 }
 
 
