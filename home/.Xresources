@@ -1,3 +1,5 @@
+
+
 !
 ! Xft
 !
@@ -12,13 +14,30 @@ Xft.hintstyle:              hintslight
 ! URxvt
 !
 
+! Quick Reference
+!
+! Scrolling:
+!   Scroll Wheel
+!   Shift-PgUp/PgDn
+!
+! Copy/Paste:
+!   Mouse-Select        : Copy to PRIMARY
+!   Shift + Mouse-Select: Copy to CLIPBOARD
+!
+!   Middle-Click        : Paste from PRIMARY
+!   Shift + Middle-Click: Paste from CLIPBOARD
+!
+!   Ctrl+Shift+V        : Paste from CLIPBOARD
+!   Ctrl+Alt+Shift+V    : Paste from PRIMARY
+!
+
 URxvt.termName:             rxvt-unicode-256color
 URxvt.intensityStyles:      true
 URxvt.loginShell:           true
 URxvt.cursorBlink:          true
 URxvt.urgentOnBell:         true
 URxvt.saveLines:            12000
-URxvt.fading:		  	 	40
+URxvt.fading:		  	    50
 URxvt.override-redirect:    false
 
 URxvt.depth:                32
@@ -70,11 +89,11 @@ URxvt.clipboard.pastecmd:   xclip -o -selection clipboard
 
 !special
 URxvt*foreground:   #f1ebeb
-URxvt*background:   [95]#272822
+URxvt*background:   [90]#272822
 URxvt*cursorColor:  #f1ebeb
 
 ! black
-*.color0:       #0f0f0f
+*.color0:       #101010
 *.color8:       #76715e
 ! red
 *.color1:       #dc2566

@@ -16,6 +16,8 @@ mpd_status {
     port = 6600
 
     hide_when_stopped = True
+    hide_on_error = True
+
     on_click 1   = "exec mpc toggle"
 
     color_play   = "#c0c0c0"

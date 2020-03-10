@@ -34,4 +34,4 @@ if [[ "${SCREENSHOT_PREFIX}" ]]; then
 fi
 
 xclip -o | xclip -selection clipboard
-notify-send -u low -t 2 "Screenshot created" "$(xclip -o)"
+notify-send -u low  "Screenshot created" "$(xclip -o)"

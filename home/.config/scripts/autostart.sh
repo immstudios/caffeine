@@ -34,8 +34,5 @@ feh --bg-scale --no-fehbg "$wallpaper"
 setxkbmap -layout $keyboard_layouts -option grp:alt_shift_toggle
 numlockx
 compton &
-touchegg &
 nm-applet &
 redshift &
-[ ! -s ~/.config/mpd/pid ] && mpd
-
