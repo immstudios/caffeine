@@ -3,6 +3,7 @@ general {
 }
 
 order += "mpd_status"
+order += "external_script backlight"
 order += "volume master"
 order += "battery_level"
 order += "keyboard_layout"
@@ -31,6 +32,12 @@ tztime local {
     format = " %Y-%m-%d  %H:%M:%S"
 }
 
+external_script backlight{
+    format = "  {output}%"
+    script_path = "/usr/bin/light | cut -d\. -f1"
+    cache_timeout = 1
+}
+
 volume master {
     on_click 1   = "exec pavucontrol"
     format       = " %volume "
@@ -49,6 +56,6 @@ battery_level {
     charging_character = "⚡"
     blocks = ""
     format = "{icon} {percent}%"
-    cache_timeout = 5
+    cache_timeout = 3
 }
 

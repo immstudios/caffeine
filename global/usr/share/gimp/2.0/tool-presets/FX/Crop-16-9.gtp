@@ -1,0 +1,21 @@
+# GIMP tool preset file
+
+(stock-id "gimp-tool-crop")
+(name "Crop 16:9")
+(tool-options "GimpCropOptions"
+    (aspect-denominator 9.000000)
+    (aspect-numerator 16.000000)
+    (fixed-rule-active yes)
+    (guide thirds)
+    (overridden-fixed-aspect yes)
+    (tool "gimp-crop-tool")
+    (allow-growing yes))
+(use-fg-bg no)
+(use-brush no)
+(use-dynamics no)
+(use-gradient no)
+(use-pattern no)
+(use-palette no)
+(use-font no)
+
+# end of GIMP tool preset file

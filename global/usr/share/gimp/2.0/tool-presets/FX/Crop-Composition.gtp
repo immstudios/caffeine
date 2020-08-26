@@ -1,0 +1,18 @@
+# GIMP tool preset file
+
+(stock-id "gimp-tool-crop")
+(name "Crop Composition")
+(tool-options "GimpCropOptions"
+    (aspect-denominator 1251.403099)
+    (aspect-numerator 1835.387351)
+    (guide thirds)
+    (tool "gimp-crop-tool"))
+(use-fg-bg no)
+(use-brush no)
+(use-dynamics no)
+(use-gradient no)
+(use-pattern no)
+(use-palette no)
+(use-font no)
+
+# end of GIMP tool preset file

@@ -37,8 +37,8 @@ URxvt.loginShell:           true
 URxvt.cursorBlink:          true
 URxvt.urgentOnBell:         true
 URxvt.saveLines:            12000
-URxvt.fading:		  	    50
 URxvt.override-redirect:    false
+URxvt.dynamicColors:        on
 
 URxvt.depth:                32
 URxvt.geometry:             90x30
@@ -89,7 +89,8 @@ URxvt.clipboard.pastecmd:   xclip -o -selection clipboard
 
 !special
 URxvt*foreground:   #f1ebeb
-URxvt*background:   [90]#272822
+URxvt*background:   [85]#272822
+URxvt*fading:       40
 URxvt*cursorColor:  #f1ebeb
 
 ! black

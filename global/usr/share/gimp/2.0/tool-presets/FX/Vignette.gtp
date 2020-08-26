@@ -1,0 +1,25 @@
+# GIMP tool preset file
+
+(stock-id "gimp-tool-blend")
+(name "Vignette")
+(tool-options "GimpBlendOptions"
+    (tool "gimp-blend-tool")
+    (opacity 0.750000)
+    (paint-mode multiply-mode)
+    (gradient "FG to Transparent")
+    (brush-size 250.000000)
+    (dynamics-expanded yes)
+    (fade-length 138.000000)
+    (fade-unit percent)
+    (gradient-reverse yes)
+    (offset 25.000000)
+    (gradient-type radial))
+(use-fg-bg no)
+(use-brush no)
+(use-dynamics no)
+(use-gradient yes)
+(use-pattern no)
+(use-palette no)
+(use-font no)
+
+# end of GIMP tool preset file

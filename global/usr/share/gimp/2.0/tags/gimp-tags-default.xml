@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tags SYSTEM "gimp-tags.dtd">
+<tags>
+  <resource identifier="${gimp_data_dir}/brushes/Round.vbr" checksum="a7f02530d3bc7484c8f9240cbe9c65b1">
+    <tag>
+      <thetag>round</thetag>
+      <thetag xml:lang="an">redondo</thetag>
+      <thetag xml:lang="ar">مُدوّر</thetag>
+      <thetag xml:lang="be">круглы</thetag>
+      <thetag xml:lang="br">rontaet</thetag>
+      <thetag xml:lang="bs">oblo</thetag>
+      <thetag xml:lang="ca">rodó</thetag>
+      <thetag xml:lang="ca@valencia">rodó</thetag>
+      <thetag xml:lang="cs">rozpitý</thetag>
+      <thetag xml:lang="da">rund</thetag>
+      <thetag xml:lang="de">rund</thetag>
+      <thetag xml:lang="el">στρογγυλή</thetag>
+      <thetag xml:lang="en_GB">round</thetag>
+      <thetag xml:lang="eo">ronde</thetag>
+      <thetag xml:lang="es">redondo</thetag>
+      <thetag xml:lang="et">ümar</thetag>
+      <thetag xml:lang="eu">biribila</thetag>
+      <thetag xml:lang="fi">pyöreä</thetag>
+      <thetag xml:lang="fr">Arrondi</thetag>
+      <thetag xml:lang="gd">cruinn</thetag>
+      <thetag xml:lang="gl">redondo</thetag>
+      <thetag xml:lang="he">עגול</thetag>
+      <thetag xml:lang="hu">kerek</thetag>
+      <thetag xml:lang="id">bulat</thetag>
+      <thetag xml:lang="is">rúnnað</thetag>
+      <thetag xml:lang="it">rotonda</thetag>
+      <thetag xml:lang="lt">apvalus</thetag>
+      <thetag xml:lang="lv">apaļš</thetag>
+      <thetag xml:lang="nb">rund</thetag>
+      <thetag xml:lang="nl">rond</thetag>
+      <thetag xml:lang="nn">rund</thetag>
+      <thetag xml:lang="oc">Arredondit</thetag>
+      <thetag xml:lang="pl">zaokrąglony</thetag>
+      <thetag xml:lang="pt">redondo</thetag>
+      <thetag xml:lang="pt_BR">redondo</thetag>
+      <thetag xml:lang="ro">rotund</thetag>
+      <thetag xml:lang="ru">круглые</thetag>
+      <thetag xml:lang="sk">okrúhly</thetag>
+      <thetag xml:lang="sl">zaobljeno</thetag>
+      <thetag xml:lang="sr">заобљено</thetag>
+      <thetag xml:lang="sr@latin">zaobljeno</thetag>
+      <thetag xml:lang="sv">rund</thetag>
+      <thetag xml:lang="te">వృత్తం</thetag>
+      <thetag xml:lang="tr">yuvarlak</thetag>
+      <thetag xml:lang="uk">круглі</thetag>
+    </tag>
+  </resource>
+
+  <resource identifier="${gimp_data_dir}/brushes/Round-Fuzzy.vbr" checksum="f8cb2466841104a55e42afce4568d103">
+    <tag>
+      
+      <thetag>fuzzy</thetag>
+      <thetag xml:lang="an">borroso</thetag>
+      <thetag xml:lang="ar">ضبابي</thetag>
+      <thetag xml:lang="be">размыты</thetag>
+      <thetag xml:lang="br">dispis</thetag>
+      <thetag xml:lang="bs">nejasno</thetag>
+      <thetag xml:lang="ca">esfumat</thetag>
+      <thetag xml:lang="ca@valencia">esfumat</thetag>
+      <thetag xml:lang="cs">kulatý</thetag>
+      <thetag xml:lang="da">sløret</thetag>
+      <thetag xml:lang="de">unscharf</thetag>
+      <thetag xml:lang="el">θολή</thetag>
+      <thetag xml:lang="en_GB">fuzzy</thetag>
+      <thetag xml:lang="eo">svage</thetag>
+      <thetag xml:lang="es">borroso</thetag>
+      <thetag xml:lang="et">hägune</thetag>
+      <thetag xml:lang="eu">lauzoa</thetag>
+      <thetag xml:lang="fi">sumea</thetag>
+      <thetag xml:lang="fr">Flou</thetag>
+      <thetag xml:lang="gd">neo-phongail</thetag>
+      <thetag xml:lang="gl">borroso</thetag>
+      <thetag xml:lang="he">רך</thetag>
+      <thetag xml:lang="hu">elmosott</thetag>
+      <thetag xml:lang="id">kabur</thetag>
+      <thetag xml:lang="is">loðið</thetag>
+      <thetag xml:lang="it">frastagliata</thetag>
+      <thetag xml:lang="lt">neaiškus</thetag>
+      <thetag xml:lang="lv">aptuvens</thetag>
+      <thetag xml:lang="nb">fuzzy</thetag>
+      <thetag xml:lang="nl">zacht</thetag>
+      <thetag xml:lang="nn">mjuk</thetag>
+      <thetag xml:lang="oc">Fosc</thetag>
+      <thetag xml:lang="pl">rozmyty</thetag>
+      <thetag xml:lang="pt">difuso</thetag>
+      <thetag xml:lang="pt_BR">difuso</thetag>
+      <thetag xml:lang="ro">difuz</thetag>
+      <thetag xml:lang="ru">растушёванные</thetag>
+      <thetag xml:lang="sk">rozmazaný</thetag>
+      <thetag xml:lang="sl">nejasno</thetag>
+      <thetag xml:lang="sr">нејасно</thetag>
+      <thetag xml:lang="sr@latin">nejasno</thetag>
+      <thetag xml:lang="sv">luddig</thetag>
+      <thetag xml:lang="te">అస్పష్టం</thetag>
+      <thetag xml:lang="tr">bulanık</thetag>
+      <thetag xml:lang="uk">розтушовані</thetag>
+      <thetag xml:lang="zh_CN">模糊</thetag>
+      <thetag xml:lang="zh_HK">模糊</thetag>
+      <thetag xml:lang="zh_TW">模糊</thetag>
+      <thetag>round</thetag>
+      <thetag xml:lang="an">redondo</thetag>
+      <thetag xml:lang="ar">مُدوّر</thetag>
+      <thetag xml:lang="be">круглы</thetag>
+      <thetag xml:lang="br">rontaet</thetag>
+      <thetag xml:lang="bs">oblo</thetag>
+      <thetag xml:lang="ca">rodó</thetag>
+      <thetag xml:lang="ca@valencia">rodó</thetag>
+      <thetag xml:lang="cs">rozpitý</thetag>
+      <thetag xml:lang="da">rund</thetag>
+      <thetag xml:lang="de">rund</thetag>
+      <thetag xml:lang="el">στρογγυλή</thetag>
+      <thetag xml:lang="en_GB">round</thetag>
+      <thetag xml:lang="eo">ronde</thetag>
+      <thetag xml:lang="es">redondo</thetag>
+      <thetag xml:lang="et">ümar</thetag>
+      <thetag xml:lang="eu">biribila</thetag>
+      <thetag xml:lang="fi">pyöreä</thetag>
+      <thetag xml:lang="fr">Arrondi</thetag>
+      <thetag xml:lang="gd">cruinn</thetag>
+      <thetag xml:lang="gl">redondo</thetag>
+      <thetag xml:lang="he">עגול</thetag>
+      <thetag xml:lang="hu">kerek</thetag>
+      <thetag xml:lang="id">bulat</thetag>
+      <thetag xml:lang="is">rúnnað</thetag>
+      <thetag xml:lang="it">rotonda</thetag>
+      <thetag xml:lang="lt">apvalus</thetag>
+      <thetag xml:lang="lv">apaļš</thetag>
+      <thetag xml:lang="nb">rund</thetag>
+      <thetag xml:lang="nl">rond</thetag>
+      <thetag xml:lang="nn">rund</thetag>
+      <thetag xml:lang="oc">Arredondit</thetag>
+      <thetag xml:lang="pl">zaokrąglony</thetag>
+      <thetag xml:lang="pt">redondo</thetag>
+      <thetag xml:lang="pt_BR">redondo</thetag>
+      <thetag xml:lang="ro">rotund</thetag>
+      <thetag xml:lang="ru">круглые</thetag>
+      <thetag xml:lang="sk">okrúhly</thetag>
+      <thetag xml:lang="sl">zaobljeno</thetag>
+      <thetag xml:lang="sr">заобљено</thetag>
+      <thetag xml:lang="sr@latin">zaobljeno</thetag>
+      <thetag xml:lang="sv">rund</thetag>
+      <thetag xml:lang="te">వృత్తం</thetag>
+      <thetag xml:lang="tr">yuvarlak</thetag>
+      <thetag xml:lang="uk">круглі</thetag>
+    </tag>
+  </resource>
+</tags>

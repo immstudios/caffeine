@@ -33,6 +33,7 @@ feh --bg-scale --no-fehbg "$wallpaper"
 
 setxkbmap -layout $keyboard_layouts -option grp:alt_shift_toggle
 numlockx
-compton &
-nm-applet &
-redshift &
+pgrep compton || compton &
+pgrep nm-applet || nm-applet &
+pgrep blueman-applet || blueman-applet &
+pgrep redshift || redshift &
